@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Search and sort movies with the OMDb API." />
+    <title>Simplified Flix | Movie Search</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav aria-label="Main navigation">
+      <a class="logo" href="./" aria-label="Simplified Flix home">
+        <img src="./assets/fes-logo.png" alt="" class="logo__img" width="50" />
+        <span class="logo__title"><strong>Simplified</strong> Flix</span>
+      </a>
+      <form class="search-form" id="searchForm" role="search">
+        <div class="search-form__group">
+          <input class="search-form__input" type="search" id="searchInput" placeholder="Search movies..." required aria-label="Search movies" />
+          <button class="search-form__button" type="submit" aria-label="Search">
+            <svg class="search-form__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </button>
+        </div>
+      </form>
+    </nav>
+
+    <main id="mainContent">
+      <section class="api-key-panel" id="apiKeyPanel" aria-labelledby="apiKeyTitle">
+        <div class="api-key-panel__copy">
+          <h1 id="apiKeyTitle">Connect to OMDb</h1>
+          <p>Enter your free OMDb API key to search the movie database. Your key stays in this browser.</p>
+        </div>
+        <form class="api-key-form" id="apiKeyForm">
+          <label class="sr-only" for="apiKeyInput">OMDb API key</label>
+          <input id="apiKeyInput" type="password" autocomplete="off" placeholder="Your OMDb API key" required />
+          <button type="submit">Save key</button>
+        </form>
+        <a href="https://www.omdbapi.com/apikey.aspx" target="_blank" rel="noreferrer">Get a free key</a>
+      </section>
+
+      <section class="controls" aria-label="Search result controls">
+        <p id="resultsInfo" class="resultsInfo" aria-live="polite">Search for a movie to get started.</p>
+        <div class="control-group">
+          <label for="typeSelect">Type:</label>
+          <select id="typeSelect"><option value="all">All</option><option value="movie">Movies</option><option value="series">Series</option><option value="episode">Episodes</option></select>
+          <label for="sortSelect">Sort:</label>
+          <select id="sortSelect"><option value="default">Default</option><option value="a-z">A - Z</option><option value="z-a">Z - A</option><option value="newest">Newest</option><option value="oldest">Oldest</option></select>
+        </div>
+      </section>
+
+      <div class="movies-grid" id="moviesGrid" aria-live="polite" aria-busy="false"></div>
+    </main>
+
+    <footer><p>Created by Simplified.org. Movie data powered by OMDb API.</p></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
